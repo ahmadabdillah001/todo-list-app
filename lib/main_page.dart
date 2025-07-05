@@ -33,6 +33,8 @@ class _MainPageState extends State<MainPage> {
             return Center(child: CircularProgressIndicator());
           } else if (snapshot.hasError) {
             return Center(child: Text(snapshot.error.toString()));
+          } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+            return Center(child: Text('Data kosong'));
           } else {
             return ListView.builder(
               itemCount: todoData.length,

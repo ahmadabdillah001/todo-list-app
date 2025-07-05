@@ -29,11 +29,11 @@ class DataModel {
 }
 
 class Service {
-  String baseUrl = 'https://reqres.in/api';
+  String baseUrl = 'https://reqres.in/api/unknown';
 
   Future<List<DataModel>> fetchDataModelList() async {
     try {
-      final url = Uri.parse('$baseUrl/unknown');
+      final url = Uri.parse(baseUrl);
       final response = await http.get(url);
 
       if (response.statusCode == 200) {
